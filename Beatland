@@ -1,0 +1,54 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "BaconBoss Hub | Beatland", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
+
+
+getgenv().tpPlace = "string"
+
+function Teleport(teleportPlace)
+    local player = game.Players.LocalPlayer
+    player.Character.HumanoidRootPart.CFrame = teleportPlace
+end
+
+
+local TpTab = Window:MakeTab({
+	Name = "Main",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+TpTab:AddLabel("Note: This Script For 1,2,3 Quest")
+
+TpTab:AddButton({
+	Name = "Eskey Script",
+	Callback = function()
+     loadstring(game:HttpGet("https://raw.githubusercontent.com/Eskeyz/Loader/main/Games/bl.lua"))()
+    end
+}) 
+
+TpTab:AddLabel("Note: This For The Last Quest")
+
+TpTab:AddDropdown({
+	Name = "Select",
+	Default = "1",
+	Options = {"1", "2", "3", "4", "5"},
+	Callback = function(Value)
+	    getgenv().tpPlace = Value  
+	end    
+})
+
+TpTab:AddButton({
+	Name = "Tp",
+	Callback = function()
+	    if getgenv().tpPlace == "1" then
+      	 Teleport(game:GetService("Workspace").Areas.Islands.Island_3_4.Island.BeatCoinCurrency.MediumBeatCoinCurrency40.Collider.CFrame)
+		elseif getgenv().tpPlace == "2" then
+		 Teleport(game:GetService("Workspace").Areas.Islands.Island_3_4.Island.BeatCoinCurrency.MediumBeatCoinCurrency41.Collider.CFrame)
+        elseif getgenv().tpPlace == "3" then
+		 Teleport(game:GetService("Workspace").Areas.Islands.Island_3_4.Island.BeatCoinCurrency.MediumBeatCoinCurrency42.Collider.CFrame)
+        elseif getgenv().tpPlace == "4" then
+		 Teleport(game:GetService("Workspace").Areas.Islands.Island_3_4.Island.BeatCoinCurrency.MediumBeatCoinCurrency47.Collider.CFrame)
+        elseif getgenv().tpPlace == "5" then
+		 Teleport(game:GetService("Workspace").Areas.Islands.Island_3_4.Island.BeatCoinCurrency.MediumBeatCoinCurrency48.Collider.CFrame)
+		end
+    end
+}) 
